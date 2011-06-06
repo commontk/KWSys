@@ -1,0 +1,20 @@
+CONFIGURE_FILE(
+  ${PROJECT_SOURCE_DIR}/UseKWSys.cmake.in
+  ${PROJECT_BINARY_DIR}/UseKWSys.cmake COPYONLY)
+
+# Library directory
+SET(KWSys_LIBRARY_DIRS_CONFIG ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
+# Include directories
+SET(KWSys_INCLUDE_DIRS_CONFIG
+  ${PROJECT_SOURCE_DIR}
+  ${PROJECT_BINARY_DIR}
+  )
+
+# UseKWSys file
+SET(KWSys_USE_FILE_CONFIG ${PROJECT_BINARY_DIR}/UseKWSys.cmake)
+
+# Configure KWSysConfig.cmake
+CONFIGURE_FILE(
+  ${PROJECT_SOURCE_DIR}/KWSysConfig.cmake.in
+  ${PROJECT_BINARY_DIR}/KWSysConfig.cmake @ONLY)
